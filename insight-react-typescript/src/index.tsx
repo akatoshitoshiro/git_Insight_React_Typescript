@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Notify from './Components/Layout/Components/Notify/Notify';
+import SearchBar from './Components/Layout/Components/SearchBar/SearchBar';
+import Nav from './Components/Nav/Nav';
 import './index.css';
-import App from './App';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Nav/>
+    <SearchBar/>
+    <Notify/>
   </React.StrictMode>
 );
 
