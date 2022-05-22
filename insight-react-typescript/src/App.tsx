@@ -1,12 +1,9 @@
-import Notify from "./Components/Layout/Components/Notify/Notify";
-import SearchBar from "./Components/Layout/Components/SearchBar/SearchBar";
-import Nav from "./Components/Nav/Nav";
+import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <SearchBar/>
-      <Nav/>
+      <NavBar/>
     </div>
   );
 }
