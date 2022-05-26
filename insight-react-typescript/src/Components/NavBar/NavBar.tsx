@@ -27,7 +27,7 @@ function NavBar() {
         </div>
           <div className="top-nav">
         <div className='Nav-SearchBar'>
-        <input className='Nav-SearchInput' placeholder='Search...'/><a href="/"><SearchOutlined/></a>
+        <input className='Nav-SearchInput' placeholder='Search...'/><a href="/"><SearchOutlined className="search-icon"/></a>
         </div>
         <div className='Nav-Notify'>
           <Link to="/mail"className="Notify-Item Notify-Mail"><MailOutlined/></Link>

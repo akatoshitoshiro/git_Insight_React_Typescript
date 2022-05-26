@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
     text-decoration: none;
 }
 body{
@@ -80,12 +79,16 @@ padding: .5em 1em .5em 2.5em;
     text-align: right;
 }
 .Nav-SearchInput{
+    font-size: 16px;
     background: #EDE6E6;
     color: #333;
     border: none;
     width: 340px;
     background: none;
    padding: 5px 8px;
+}
+.search-icon{
+    font-size: 1.3rem;
 }
 .Nav-SearchBar a{
     color: #333;
