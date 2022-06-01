@@ -49,6 +49,10 @@ height: 10%;
     padding: .5rem;
     background: none;
     border: 1px solid #FF993C;
+    border: 1px solid;
+    border-radius: 10px;
+    display: initial;
+    cursor: pointer;
 }
 .list-ticket{
     font-size: 14px;
@@ -82,3 +86,142 @@ height: 10%;
     color: #A5A8B1;
     font-style: italic;
 }
+.expired{
+    background-color: #F8EBE8;
+    border: 1px solid #FD5959;
+    border-radius: 5px;
+    padding: 4px 18px 4px 0;
+    width: fit-content;
+    color: #FD5959;
+}
+.expired::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 7.5px;
+    background-color: #FD5959;
+    text-align: center;
+    margin: 1px 5px;
+    
+   }
+.notUsed{
+    background-color: #DEF7E0;
+    border: 1px solid #03AC00;
+    border-radius: 5px;
+    padding: 4px 18px 4px 0;
+    width: fit-content;
+    color: #03AC00;
+}
+.notUsed::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 7.5px;
+    background-color: #03AC00;
+    text-align: center;
+    margin: 1px 5px;
+   }
+.used{
+    border: 1px solid #919DBA;
+    background-color: #EAF1F8;
+    border-radius: 5px;
+    padding: 4px 10px 4px 0;
+    width: fit-content;
+    color: #919DBA;
+}
+.used::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 7.5px;
+    background-color: #919DBA;
+    text-align: center;
+    margin: 1px 5px;
+   }
+   #background-black{
+    background: rgb(0 0 0 / 50%);
+    margin-left: -350px;
+    position: absolute;
+    margin-top: -81vh;
+    height: 139vh;
+    width: 100vw;
+    display: none;
+    animation: animationAl 1s ease-in-out;
+   }
+   @keyframes animationAl {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .filter-container{
+   position: absolute;
+   top: 30%;
+   left: 35%;
+   height: 390px;
+   width: 600px;
+   background: white;
+   padding: 30px;
+  }
+  .filter-container h2{
+      text-align: center;
+  } 
+  .filter-Date {
+    display: flex;
+    padding: 30px 0 30px 40px;
+  }
+  
+  .date2 {
+    padding-left: 140px;
+  }
+  .filter-container .h4-status{
+    padding: 5px 0 10px 40px;
+  }
+  .filter-status{
+      position: relative;
+    padding-left: 20px;
+    display: flex;
+}
+  
+  .filter-status input[type="radio"] {
+    width: 25px;
+    height: 25px;
+    margin: 0px 5px 15px 20px;
+
+}
+  
+  .filter-Gate, .filter-Gate1, .filter-Gate2{
+    padding: 0px 30px 0px 30px;
+  }
+   .item-checkbox{
+    display: flex;
+    font-size: 20px;
+    padding-left: 20px;
+   }
+  
+   .filter-All {
+    display: flex;
+  }
+  
+  .item-checkbox input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+  }
+  
+  button.btn-filter1 {
+    margin-top: 30px;
+    margin-left: 37%;
+    width: 160px;
+    height: 55px;
+    background-color: white;
+    border: 1px solid #FF993C;
+    color: #FF993C;
+    border-radius: 10px;
+  }
+  

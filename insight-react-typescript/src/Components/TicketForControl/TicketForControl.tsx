@@ -1,6 +1,29 @@
 import { SearchOutlined } from "@ant-design/icons";
+import { useState, useEffect } from "react";
+import * as TodoControl from"../../db/repositories/Todo-Control"
 import"../ComponentsStyle/style.css"
 function TicketForControl() {
+  const [todos, setTodos] = useState<Array<TodoControl.TodoControl>>([]);
+  useEffect(() => {
+    fetchTodos();
+}, []);
+const fetchTodos = async () => {
+  setTodos([]);
+  const _todos = await TodoControl.all();
+  setTodos(_todos);
+};
+
+const checkStatus= document.getElementsByClassName('status-check');
+for (let i=0; i < checkStatus.length; i++){
+  if(checkStatus[i].innerHTML==='Chưa đối soát')
+  {
+    checkStatus[i].classList.add('notcontrol')
+  }
+  else if(checkStatus[i].innerHTML==='Đã đối soát')
+  {
+    checkStatus[i].classList.add('controled')
+  }
+}
     return (
       <div className="Wrapper">
         <div className="list-container">
@@ -28,30 +51,21 @@ function TicketForControl() {
         </tr>
         </thead>
         <tbody>
+        {todos.length === 0 ? (
+                    <div className="loading">
+                        <span>Đang tải dữ liệu....</span>
+                    </div>
+                ) : null}
+          {todos.map((todo, index)=>(
         <tr>
-          <td>1</td>
-          <td>205314876321</td>
-          <td>14/04/2021</td>
-          <td>Vé cổng</td>
-          <td>Cổng 1</td>
-          <td className="forcontrol">Chưa đối soát</td>
+          <td key={index}>{index+1}</td>
+          <td>{todo.ticketNumber}</td>
+          <td>{todo.ticketNumber}</td>
+          <td>{todo.ticketName}</td>
+          <td>{todo.gateCheck}</td>
+          <td className="forcontrol"><div className="status-check">{todo.controlStatus}</div></td>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>205314876321</td>
-          <td>14/04/2021</td>
-          <td>Vé cổng</td>
-          <td>Cổng 1</td>
-          <td className="forcontrol">Chưa đối soát</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>205314876321</td>
-          <td>14/04/2021</td>
-          <td>Vé cổng</td>
-          <td>Cổng 1</td>
-          <td className="forcontrol">Chưa đối soát</td>
-        </tr>
+          ))}
         </tbody>
         </table>
         </div>
