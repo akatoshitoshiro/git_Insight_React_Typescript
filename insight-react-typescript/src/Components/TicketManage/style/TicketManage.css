@@ -19,7 +19,7 @@ height: 10%;
         background: #EDE6E6;
         color: #333;
         border: none;
-        background: none;
+        background: none;width:400px;
         width: 340px;
        padding: 5px 8px;
     }
@@ -70,7 +70,7 @@ height: 10%;
 .list-ticket tr:nth-child(2n+2){
     background-color: #F1F4F8;
 }
-.list-ticket th,.list-ticket td,.list-ticket table{
+.list-ticket th,.list-ticket td{
     padding: 10px 30px 10px 30px;
 }
 .left-align{
@@ -86,7 +86,7 @@ height: 10%;
     color: #A5A8B1;
     font-style: italic;
 }
-.expired{
+.Expired{
     background-color: #F8EBE8;
     border: 1px solid #FD5959;
     border-radius: 5px;
@@ -94,7 +94,7 @@ height: 10%;
     width: fit-content;
     color: #FD5959;
 }
-.expired::before{
+.Expired::before{
     content: '';
     display: inline-block;
     width: 8px;
@@ -105,7 +105,7 @@ height: 10%;
     margin: 1px 5px;
     
    }
-.notUsed{
+.NotUsed{
     background-color: #DEF7E0;
     border: 1px solid #03AC00;
     border-radius: 5px;
@@ -113,7 +113,7 @@ height: 10%;
     width: fit-content;
     color: #03AC00;
 }
-.notUsed::before{
+.NotUsed::before{
     content: '';
     display: inline-block;
     width: 8px;
@@ -123,7 +123,7 @@ height: 10%;
     text-align: center;
     margin: 1px 5px;
    }
-.used{
+.Used{
     border: 1px solid #919DBA;
     background-color: #EAF1F8;
     border-radius: 5px;
@@ -131,7 +131,7 @@ height: 10%;
     width: fit-content;
     color: #919DBA;
 }
-.used::before{
+.Used::before{
     content: '';
     display: inline-block;
     width: 8px;
@@ -151,14 +151,6 @@ height: 10%;
     display: none;
     animation: animationAl 1s ease-in-out;
    }
-   @keyframes animationAl {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
   .filter-container{
    position: absolute;
    top: 30%;
@@ -175,7 +167,12 @@ height: 10%;
     display: flex;
     padding: 30px 0 30px 40px;
   }
-  
+  .filter-Date input{
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+  }
+ 
   .date2 {
     padding-left: 140px;
   }
@@ -183,11 +180,14 @@ height: 10%;
     padding: 5px 0 10px 40px;
   }
   .filter-status{
-      position: relative;
+    position: relative;
     padding-left: 20px;
     display: flex;
+
 }
-  
+ .filter-status-content{
+     padding-top: 3px;
+ }
   .filter-status input[type="radio"] {
     width: 25px;
     height: 25px;
@@ -197,6 +197,12 @@ height: 10%;
   
   .filter-Gate, .filter-Gate1, .filter-Gate2{
     padding: 0px 30px 0px 30px;
+  }
+  .filter-Gate div, .filter-Gate1 div, .filter-Gate2 div{
+    margin-top: 10px;
+  }
+  .filter-status {
+
   }
    .item-checkbox{
     display: flex;

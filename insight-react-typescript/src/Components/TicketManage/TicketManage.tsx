@@ -1,4 +1,5 @@
-import {useEffect,useState} from "react"
+import {useEffect,useState} from "react";
+import {CSVLink} from "react-csv"
 import { SearchOutlined,FilterOutlined } from "@ant-design/icons";
 import * as todo from"../../db/repositories/todo"
 import"../ComponentsStyle/style.css"
@@ -6,10 +7,12 @@ import"./style/TicketManage.css"
 
 
 function Manage() {
-  const [todos, setTodos] = useState<Array<todo.Todo>>([]);
   useEffect(() => {
     fetchTodos();
 }, []);
+
+  const [todos, setTodos] = useState<Array<todo.Todo>>([]);
+ 
   const filterWindow = () =>{
   const element: HTMLElement = document.getElementById('background-black') as HTMLElement
   element.style.display = 'block'
@@ -23,23 +26,46 @@ const fetchTodos = async () => {
   setTodos([]);
   const _todos = await todo.all();
   setTodos(_todos);
-};
-
-const checkStatus= document.getElementsByClassName('status-check');
-for (let i=0; i < checkStatus.length; i++){
-  if(checkStatus[i].innerHTML==='Chưa sử dụng')
-  {
-    checkStatus[i].classList.add('notUsed')
-  }
-  else if(checkStatus[i].innerHTML==='Đã sử dụng')
-  {
-    checkStatus[i].classList.add('used')
-  }
-  else if (checkStatus[i].innerHTML==='Hết hạn')
-  {
-    checkStatus[i].classList.add('expired')
-  } 
+  
+  
 }
+const checkStatus = document.getElementsByClassName("status-check");
+for (let i = 0; i < checkStatus.length; i++){
+  if (checkStatus[i].innerHTML === 'Chưa sử dụng')
+  {
+    console.log(checkStatus[i].classList)
+  }
+  if(checkStatus[i].innerHTML === "Hết hạn")
+    {
+      checkStatus[i].classList.add("Expired");
+      
+    }
+    if(checkStatus[i].innerHTML==="Đã sử dụng")
+    {   
+      
+      checkStatus[i].classList.add("Used");
+    }
+}
+
+  
+const headers =[
+  { label:'index', key:'index'},
+   {label:'bookingCode', key:'bookingCode'},
+   {label:'ticketNumber', key:'ticketNumber'},
+   {label:'useStatus', key:'useStatus'},
+   {label:'useDate', key:'useDate'},
+   {label:'outDate', key:'outDate'},
+   {label:'gateCheck', key:'gateCheck'},
+]
+
+const csvExport={
+ filename:'TicketList.csv',
+ headers:headers,
+ data: todos,
+}
+
+
+
     return (
       <div className="Wrapper">
         <div className="list-container">
@@ -51,8 +77,8 @@ for (let i=0; i < checkStatus.length; i++){
         <input className='List-SearchInput' placeholder='Tìm bằng số vé'/><a href="/"><SearchOutlined className="search-icon"/></a>
         </div>
         <div className="List-button-container">
-        <button className="List-button" onClick={filterWindow}><FilterOutlined/> Lọc vé</button>
-        <button className="List-button">Xuất file(.csv)</button>
+        <div className="List-button" onClick={filterWindow}><FilterOutlined/> Lọc vé</div>
+        <div className="List-button" > <CSVLink style={{color: "#FF993C" }}   {...csvExport}>Xuất file(.csv)</CSVLink></div>
         </div>
         </div>
         <div className="table-container">
@@ -66,7 +92,7 @@ for (let i=0; i < checkStatus.length; i++){
           <th className="left-align">Tình trạng sử dụng</th>
           <th className="right-align">Ngày sử dụng</th>
           <th className="right-align">Ngày xuất vé</th>
-          <th className="right-align">Cổng check-in</th>
+          <th className="center-align">Cổng check-in</th>
         </tr>
         </thead>
         <tbody>
@@ -83,7 +109,7 @@ for (let i=0; i < checkStatus.length; i++){
           <td className="left-align status-check">{todo.useStatus}</td>
           <td className="right-align">{todo.useDate}</td>
           <td className="right-align">{todo.outDate}</td>
-          <td className="right-align">{todo.gateCheck}</td>
+          <td className="center-align">{todo.gateCheck}</td>
           </tr>
           ))}
           </tbody>
@@ -93,6 +119,7 @@ for (let i=0; i < checkStatus.length; i++){
                 <form className="filter-container">
                     <h2>Lọc vé</h2>
                     <div className="filter-Date">
+                      {/* <DatePicker /> */}
                         <div className="date1">
                             <h4>Từ ngày</h4>
                             <input type="date" />
@@ -104,10 +131,10 @@ for (let i=0; i < checkStatus.length; i++){
                     </div>
                     <h4 className="h4-status">Tình trạng sử dụng</h4>
                     <div className="filter-status">
-                        <div className="item-input"><input type="radio" value={"Tất cả"}/>Tất cả</div>
-                        <div className="item-input"><input type="radio" value={"Đã sử dụng"}/>Đã sử dụng</div>
-                        <div className="item-input"><input type="radio" value={"Chưa sử dụng"}/>Chưa sử dụng</div>
-                        <div className="item-input"><input type="radio" value={"Hết hạn"}/>Hết hạn</div>
+                        <div className="item-input"><input type="radio" value={"Tất cả"}/></div> <div className='filter-status-content'>Tất cả</div>
+                        <div className="item-input"><input type="radio" value={"Đã sử dụng"}/></div> <div className='filter-status-content'>Đã sử dụng</div>
+                        <div className="item-input"><input type="radio" value={"Chưa sử dụng"}/></div><div className='filter-status-content'>Chưa sử dụng</div>
+                        <div className="item-input"><input type="radio" value={"Hết hạn"}/></div><div className='filter-status-content'>Hết hạn</div>
                     </div>
                     <h4 className="h4-status">Cổng Check-in</h4>
                     <div className="filter-All">
@@ -132,6 +159,7 @@ for (let i=0; i < checkStatus.length; i++){
       
       </div>
     );
+
   }
   
   export default Manage;

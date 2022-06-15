@@ -1,0 +1,74 @@
+
+.filter-control-wrapper{
+    position:absolute;
+    right: 30px;
+    top: 80px;
+    background-color: #fff;
+    height: 84vh;
+    width: 20vw;
+    border-radius: 24px;
+}
+.List-button-control{
+    background-color: #FF993C;
+    font-weight: bolder;
+    color: #fff;
+    padding: .7rem 1.5rem .7rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.filter-control-container {
+    position: absolute;
+    top: 3%;
+    width: 100%;
+}
+.filter-content, .filter-check-status, .filter-type, .filter-date-container {
+    padding-left: 5%;
+}
+.filter-control-container >div{
+    padding-bottom:  1.3rem;
+}
+.filter-content{
+    width: 100%;
+}
+.filter-check-status{
+    padding-top: 1.5rem;
+    display: flex;
+}
+.filter-check-radio-container{
+    display: inline-block;
+    
+}
+
+.filter-check-radio{
+    padding: 0 0 .8rem .6rem ;
+}
+.filter-type{
+    display: flex;
+}
+.filter-type span{
+    padding-left: 6.5rem;
+}
+.filter-date{
+    display: flex;
+    padding-bottom: 1rem;
+}
+.filter-date-content{
+    width: 44%;
+}
+.filter-button{
+    width: 100%;
+    text-align: center;
+    padding-top: 0.3rem;
+}
+.filter-button-btn{
+    color: #FF993C;
+    font-weight: bolder;
+    padding: .5rem 3rem .5rem 3rem;
+    border-radius: 8px;
+    border: solid 1px #FF993C;
+    background: none;
+}
+.notcontrol{
+    padding: 300px;
+}

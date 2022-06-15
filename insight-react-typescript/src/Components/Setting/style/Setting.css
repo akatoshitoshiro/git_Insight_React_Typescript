@@ -1,0 +1,18 @@
+.edit-btn{
+    background: none;
+    color: #FF993C;
+    border: none;
+    cursor: pointer;
+}
+.setting-button{
+    margin-left: 5px;
+    font-weight: bolder;
+    color: #fff;
+    padding: .5rem;
+    background: #FF993C;
+    border: 1px solid #FF993C;
+    border: 1px solid;
+    border-radius: 10px;
+    display: initial;
+    cursor: pointer;
+}

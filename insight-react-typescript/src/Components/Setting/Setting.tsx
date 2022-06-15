@@ -1,7 +1,8 @@
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import * as TodoControl from"../../db/repositories/Todo-Control"
 import"../ComponentsStyle/style.css"
+import"../Setting/style/Setting.css"
 function Setting() {
 //   const [todos, setTodos] = useState<Array<TodoControl.TodoControl>>([]);
 //   useEffect(() => {
@@ -36,6 +37,7 @@ for (let i=0; i < checkStatus.length; i++){
         </div>
         <div className="List-button-container">
         <button className="List-button">Xuất file(.csv)</button>
+        <button className="setting-button">Thêm gói vé</button>
         </div>
         </div>
         <div className="table-container">
@@ -59,7 +61,7 @@ for (let i=0; i < checkStatus.length; i++){
                         <span>Đang tải dữ liệu....</span>
                     </div>
                 ) : null}
-          {todos.map((todo, index)=>( */}
+          {todos.map((todo, index)=>( */}                     
         <tr>
           <td>1</td>
           <td>ALT20210501</td>
@@ -71,7 +73,7 @@ for (let i=0; i < checkStatus.length; i++){
             <td>90.000 VNĐ</td>
             <td>360.000 VNĐ/4 Vé</td>
             <td>Đang áp dụng</td>
-            <td><button>Cập nhật</button></td>
+            <td><button className="edit-btn"><EditOutlined /> Cập nhật</button></td>
 
           {/* <td className="forcontrol"><div className="status-check">{todo.controlStatus}</div></td> */}
         </tr>
@@ -86,7 +88,7 @@ for (let i=0; i < checkStatus.length; i++){
             <td>20.000 VNĐ</td>
             <td></td>
             <td>Tắt</td>
-            <td><button>Cập nhật</button></td>
+            <td><button className="edit-btn"><EditOutlined /> Cập nhật</button></td>
 
           {/* <td className="forcontrol"><div className="status-check">{todo.controlStatus}</div></td> */}
         </tr>
